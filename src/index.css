@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes homeFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes homeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes homeFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes homeGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(45, 212, 191, 0);
+  }
+  50% {
+    text-shadow: 0 0 14px rgba(45, 212, 191, 0.45);
+  }
+}
+
+@keyframes navbarSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navbarPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.home-fade-up {
+  animation: homeFadeUp 0.8s ease-out both;
+}
+
+.home-slide-up {
+  animation: homeSlideUp 0.7s ease-out both;
+}
+
+.home-float {
+  animation: homeFloat 5s ease-in-out infinite;
+}
+
+.home-glow {
+  animation: homeGlow 2.8s ease-in-out infinite;
+}
+
+.home-reveal {
+  animation: homeFadeUp 0.9s ease-out both;
+}
+
+.home-card {
+  animation: homeFadeUp 0.9s ease-out both;
+}
+
+.doctor-label,
+.doctor-name,
+.doctor-title {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: homeSlideUp 0.7s ease-out forwards;
+}
+
+.doctor-label {
+  animation-delay: 0.2s;
+}
+
+.doctor-name {
+  animation-delay: 0.4s;
+}
+
+.doctor-title {
+  animation-delay: 0.6s;
+}
+
+.stats-item {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: homeFadeUp 0.8s ease-out forwards;
+}
+
+.stats-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stats-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.expertise-image-wrap {
+  overflow: hidden;
+}
+
+.expertise-image {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transform: scale(1.01);
+}
+
+.expertise-image-wrap:hover .expertise-image {
+  transform: scale(1.08);
+}
+
+.expertise-label,
+.expertise-heading,
+.expertise-item {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: homeSlideUp 0.7s ease-out forwards;
+}
+
+.expertise-label {
+  animation-delay: 0.2s;
+}
+
+.expertise-heading {
+  animation-delay: 0.35s;
+}
+
+.expertise-item {
+  animation-delay: 0.5s;
+}
+
+.home-hero-image {
+  transform: scale(1.03);
+  animation: homeFloat 8s ease-in-out infinite alternate;
+}
+
+.navbar-animate {
+  animation: navbarSlideIn 0.7s ease-out both;
+}
+
+.navbar-logo {
+  animation: navbarSlideIn 0.8s ease-out both;
+}
+
+.navbar-menu {
+  animation: navbarSlideIn 0.9s ease-out both;
+}
+
+.navbar-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  background: #14b8a6;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-item:hover::after,
+.navbar-item-active::after {
+  width: 60%;
+}
+
+.navbar-item:hover,
+.navbar-item-active {
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.navbar-icon {
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover .navbar-icon {
+  animation: navbarPulse 0.8s ease-in-out;
+}
